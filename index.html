@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#FFD700"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Analizador GB"/>
+<meta name="description" content="Analizador experto en gramática del inglés británico."/>
+<link rel="icon" href="data:image/png;base64,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"/>
+<link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+<title>🦎 Analizador · Inglés Británico</title>
+
+<script>
+// ── Inline Manifest ──
+const manifestData = {
+  name: "Analizador Inglés Británico",
+  short_name: "Analizador GB",
+  description: "Analizador experto en gramática del inglés británico.",
+  start_url: "./",
+  display: "standalone",
+  background_color: "#07070f",
+  theme_color: "#FFD700",
+  orientation: "portrait-primary",
+  icons: [
+    { src: "data:image/png;base64,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", sizes: "192x192", type: "image/png", purpose: "any maskable" },
+    { src: "data:image/png;base64,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", sizes: "512x512", type: "image/png", purpose: "any maskable" }
+  ]
+};
+const manifestBlob = new Blob([JSON.stringify(manifestData)], {type: 'application/manifest+json'});
+const manifestURL = URL.createObjectURL(manifestBlob);
+document.addEventListener('DOMContentLoaded', () => {
+  const link = document.createElement('link');
+  link.rel = 'manifest';
+  link.href = manifestURL;
+  document.head.appendChild(link);
+});
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg:      #07070f;
+  --surface: #0f0f1a;
+  --card:    #13131f;
+  --border:  #1c1c2e;
+  --accent:  #FFD700;
+  --accent2: #ffec6e;
+  --text:    #eaeaf5;
+  --muted:   #52527a;
+  --ok:      #4ade80;
+  --err:     #f87171;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bot: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: var(--safe-top);
+  padding-bottom: calc(var(--safe-bot) + 4rem);
+  background-image:
+    radial-gradient(ellipse 80% 40% at 10% 0%, rgba(255,215,0,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(135,206,235,0.04) 0%, transparent 60%);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── HEADER ── */
+.app-header {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  position: relative; overflow: hidden;
+}
+.app-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,215,0,0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+.header-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem; letter-spacing: 0.2em;
+  color: var(--accent);
+  border: 1px solid rgba(255,215,0,0.35);
+  padding: 0.28rem 0.9rem; border-radius: 2px;
+  margin-bottom: 1rem; text-transform: uppercase;
+  animation: fadeDown 0.6s ease both;
+}
+.app-header h1 {
+  font-size: clamp(1.25rem, 5vw, 2rem);
+  font-weight: 800; letter-spacing: 0.02em; line-height: 1.25;
+  animation: fadeDown 0.7s ease 0.1s both;
+}
+.app-header h1 em { font-style: normal; color: var(--accent); }
+.app-header p {
+  margin-top: 0.6rem; font-size: 0.78rem; color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.5;
+  animation: fadeDown 0.7s ease 0.2s both;
+}
+
+/* ── INSTALL BANNER ── */
+#install-banner {
+  display: none;
+  margin: 0 1rem 1rem;
+  background: rgba(255,215,0,0.08);
+  border: 1px solid rgba(255,215,0,0.3);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  align-items: center; gap: 0.75rem;
+  flex-wrap: wrap;
+  animation: fadeDown 0.5s ease both;
+}
+#install-banner.visible { display: flex; }
+.install-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; color: var(--accent); flex: 1;
+  letter-spacing: 0.05em;
+}
+.install-btn {
+  background: var(--accent); color: #000;
+  border: none; border-radius: 4px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem; font-weight: 700;
+  padding: 0.4rem 1rem; cursor: pointer;
+  white-space: nowrap;
+}
+.install-dismiss {
+  background: transparent; border: none;
+  color: var(--muted); font-size: 1rem;
+  cursor: pointer; padding: 0.2rem;
+}
+
+/* ── MAIN ── */
+.main { max-width: 860px; margin: 0 auto; padding: 0 1rem; }
+
+/* ── INPUT CARD ── */
+.input-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.6s ease 0.3s both;
+  position: relative; overflow: hidden;
+}
+.input-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.input-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.15em;
+  color: var(--accent); text-transform: uppercase;
+  margin-bottom: 0.7rem; display: block;
+}
+
+/* Textarea instead of input for mobile comfort */
+#sentence-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem; padding: 0.85rem 1rem;
+  outline: none; resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  caret-color: var(--accent);
+  min-height: 56px; max-height: 120px;
+  overflow-y: auto;
+  -webkit-appearance: none;
+  line-height: 1.5;
+}
+#sentence-input::placeholder { color: var(--muted); }
+#sentence-input:focus {
+  border-color: rgba(255,215,0,0.5);
+  box-shadow: 0 0 0 3px rgba(255,215,0,0.07);
+}
+
+.analyze-btn {
+  width: 100%; margin-top: 0.75rem;
+  background: var(--accent); color: #000;
+  border: none; border-radius: 6px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem; font-weight: 700;
+  letter-spacing: 0.06em; padding: 0.9rem;
+  cursor: pointer; transition: background 0.2s, transform 0.1s;
+  text-transform: uppercase; touch-action: manipulation;
+}
+.analyze-btn:active { transform: scale(0.98); background: var(--accent2); }
+.analyze-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+.input-examples {
+  margin-top: 0.8rem; display: flex; gap: 0.4rem; flex-wrap: wrap;
+}
+.ex-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  color: var(--muted); align-self: center; width: 100%; margin-bottom: 0.1rem;
+}
+.example-chip {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  color: var(--muted); border: 1px solid var(--border);
+  border-radius: 20px; padding: 0.25rem 0.65rem;
+  cursor: pointer; transition: all 0.2s;
+  touch-action: manipulation;
+}
+.example-chip:active, .example-chip:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: rgba(255,215,0,0.05);
+}
+
+/* ── LOADER ── */
+.loader { display: none; text-align: center; padding: 2.5rem 1rem; }
+.loader.visible { display: block; animation: fadeUp 0.4s ease both; }
+.loader-dots { display: inline-flex; gap: 0.5rem; margin-bottom: 1rem; }
+.loader-dots span {
+  width: 9px; height: 9px; background: var(--accent);
+  border-radius: 50%; animation: bounce 1.2s ease infinite;
+}
+.loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+.loader-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em;
+}
+
+/* ── RESULT ── */
+#result-area { display: none; }
+#result-area.visible { display: block; animation: fadeUp 0.5s ease both; }
+
+/* ── REPORT ── */
+.report-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: 1.1rem;
+}
+.report-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  letter-spacing: 0.14em; color: var(--muted);
+  text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.report-type {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+  color: var(--accent); margin-bottom: 0.35rem;
+}
+.report-sentence {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
+  color: var(--accent2); margin-bottom: 0.45rem; font-style: italic;
+}
+.report-desc {
+  font-family: 'Syne', sans-serif; font-size: 0.82rem;
+  color: #a0a0c0; line-height: 1.65;
+}
+
+/* ── ANALYSIS CARD ── */
+.analysis-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; margin-bottom: 1.1rem;
+  position: relative;
+}
+.analysis-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.analysis-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 1.1rem; border-bottom: 1px solid var(--border);
+  background: rgba(255,215,0,0.025);
+}
+.analysis-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.13em; color: var(--muted); text-transform: uppercase;
+}
+.analysis-body { padding: 1.1rem 1.25rem; line-height: 2.1; }
+
+/* ── CODE PANEL ── */
+.code-panel {
+  border: 2px solid var(--accent); border-radius: 10px;
+  overflow: hidden; margin-bottom: 1.1rem;
+}
+.code-header {
+  background: var(--accent); padding: 0.6rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.5rem; flex-wrap: wrap;
+}
+.code-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; font-weight: 700;
+  color: #000; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.copy-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: #000; color: var(--accent);
+  border: none; border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em;
+  padding: 0.4rem 1rem; cursor: pointer;
+  text-transform: uppercase; transition: all 0.2s;
+  white-space: nowrap; touch-action: manipulation;
+  min-height: 36px;
+}
+.copy-btn:active { background: #222; }
+.copy-btn.ok { background: #14532d; color: #4ade80; }
+.code-hint {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  color: #666; background: #fffbe6;
+  padding: 0.35rem 1rem; border-bottom: 1px solid #ffe066;
+  line-height: 1.5;
+}
+#font-code {
+  width: 100%; min-height: 320px;
+  background: #0a0a14; color: #d0d0e8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; line-height: 1.9;
+  padding: 1.1rem 1.25rem;
+  border: none; outline: none; resize: vertical;
+  white-space: pre-wrap; word-break: break-word;
+  -webkit-appearance: none;
+}
+
+/* ── NEW BTN ── */
+.new-btn {
+  display: block; width: 100%;
+  background: transparent; border: 1px solid var(--border);
+  border-radius: 8px; color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.1em;
+  padding: 0.85rem; cursor: pointer;
+  text-transform: uppercase; transition: all 0.2s;
+  margin-bottom: 1.1rem; touch-action: manipulation;
+  min-height: 48px;
+}
+.new-btn:active, .new-btn:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: rgba(255,215,0,0.04);
+}
+
+/* ── ERROR ── */
+.error-box {
+  display: none;
+  background: rgba(248,113,113,0.08);
+  border: 1px solid rgba(248,113,113,0.3);
+  border-radius: 8px; padding: 1rem 1.1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem; color: var(--err); margin-bottom: 1.1rem;
+  line-height: 1.6;
+}
+.error-box.visible { display: block; }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: calc(1.5rem + var(--safe-bot)); left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #111128; border: 1px solid var(--ok);
+  color: var(--ok); font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; padding: 0.65rem 1.25rem;
+  border-radius: 4px; opacity: 0;
+  transition: all 0.3s ease; z-index: 9999;
+  white-space: nowrap; letter-spacing: 0.07em; pointer-events: none;
+  max-width: 90vw; text-align: center;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── FOOTER ── */
+.app-footer {
+  text-align: center; margin-top: 2.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem; letter-spacing: 0.12em;
+  color: var(--muted); text-transform: uppercase;
+  padding: 0 1rem;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+  40%           { transform: scale(1);   opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-badge">v15.7 · Prompt Maestro Autónomo</div>
+  <h1>🦎 Analizador Experto en<br><em>Inglés Británico</em></h1>
+  <p>Sintaxis · Orden funcional · Colores · Código copiable</p>
+</header>
+
+<!-- Install banner (Android Chrome) -->
+<div id="install-banner">
+  <span class="install-text">📲 Instalar app en tu dispositivo</span>
+  <button class="install-btn" onclick="installApp()">Instalar</button>
+  <button class="install-dismiss" onclick="dismissInstall()" aria-label="Cerrar">✕</button>
+</div>
+
+<main class="main">
+
+  <!-- INPUT -->
+  <div class="input-card">
+    <label class="input-label" for="sentence-input">✏️ Escribe la oración en inglés</label>
+    <textarea
+      id="sentence-input"
+      placeholder="Ej: She gave him a beautiful gift yesterday..."
+      autocomplete="off"
+      spellcheck="false"
+      rows="2"
+    ></textarea>
+    <button class="analyze-btn" id="analyze-btn" onclick="analyze()">🔍 Analizar oración</button>
+    <div class="input-examples">
+      <span class="ex-label">Ejemplos rápidos:</span>
+      <span class="example-chip" onclick="setExample(this)">We are planning short trips across the UK</span>
+      <span class="example-chip" onclick="setExample(this)">Why did the teacher give us a test today?</span>
+      <span class="example-chip" onclick="setExample(this)">She has been working here since Monday</span>
+      <span class="example-chip" onclick="setExample(this)">I want to go to the store for her</span>
+    </div>
+  </div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-dots"><span></span><span></span><span></span></div>
+    <div class="loader-text">Analizando estructura sintáctica...</div>
+  </div>
+
+  <!-- ERROR -->
+  <div class="error-box" id="error-box"></div>
+
+  <!-- RESULT -->
+  <div id="result-area">
+
+    <button class="new-btn" onclick="resetAll()">↩ Analizar nueva oración</button>
+
+    <div class="report-card">
+      <div class="report-label">⬛ Reporte de Diagnóstico</div>
+      <div class="report-type" id="r-type"></div>
+      <div class="report-sentence" id="r-sentence"></div>
+      <div class="report-desc" id="r-desc"></div>
+    </div>
+
+    <div class="analysis-card">
+      <div class="analysis-header">
+        <span class="analysis-title">📋 Análisis Sintáctico</span>
+      </div>
+      <div class="analysis-body" id="analysis-body"></div>
+    </div>
+
+    <div class="code-panel">
+      <div class="code-header">
+        <span class="code-title">🏷️ Código con colores</span>
+        <button class="copy-btn" id="copy-btn" onclick="doCopy()">📋 Copiar</button>
+      </div>
+      <div class="code-hint">Copia este código y pégalo en Claude o en un editor HTML para obtener los colores exactos.</div>
+      <textarea id="font-code" readonly spellcheck="false" onclick="this.select()"></textarea>
+    </div>
+
+  </div>
+
+  <div class="app-footer">🦎 Prompt Maestro Autónomo v15.7 · British English Grammar Analyzer</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<!-- Service Worker registration -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+
+<!-- PWA Install prompt -->
+<script>
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('install-banner').classList.add('visible');
+});
+
+window.addEventListener('appinstalled', () => {
+  document.getElementById('install-banner').classList.remove('visible');
+  showToast('✓ App instalada correctamente');
+});
+
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      deferredPrompt = null;
+      document.getElementById('install-banner').classList.remove('visible');
+    });
+  }
+}
+
+function dismissInstall() {
+  document.getElementById('install-banner').classList.remove('visible');
+}
+</script>
+
+<!-- MAIN APP LOGIC -->
+<script>
+const SYSTEM_PROMPT = `Actúas como una AI ANALIZADOR EXPERTO EN LA GRAMÁTICA DEL INGLÉS BRITÁNICO, especializado en identificar, organizar y explicar el ORDEN SINTÁCTICO REAL de cualquier oración en inglés.
+
+════════════════════════════════
+COLORES HEX FIJOS Y EMOJIS
+════════════════════════════════
+⚫ WH / Interjección / Saludo → #A9A9A9
+🟡 Sujeto → #FFD700
+🔵 Auxiliar (solo cuando es independiente) → #87CEEB
+🟢 Verbo Principal / Infinitivo → #008000
+🟠 Objeto Directo → #FF8C00
+🟣 Objeto Indirecto / Beneficiario → #A855F7
+🔴 Lugar / Dirección → #DC143C
+🟤 Tiempo → #8B4513
+⚪ Conjunción subordinante o coordinante → #FFFFFF
+
+════════════════════════════════
+ORDEN SINTÁCTICO
+════════════════════════════════
+Declarativa: SUJETO + AUX + VERBO + OBJ IND + OBJ DIR + LUGAR + TIEMPO
+Interrogativa: WH + AUX + SUJETO + VERBO + OBJ IND + OBJ DIR + LUGAR + TIEMPO
+
+Reglas clave:
+- En preguntas directas, WH va al inicio
+- El tiempo suele ir al final
+- El lugar va antes del tiempo
+- Los signos de puntuación NO se analizan ni colorean jamás
+
+════════════════════════════════
+OBJETO INDIRECTO / BENEFICIARIO
+════════════════════════════════
+Sin preposición: give us a test → "us" = Objeto Indirecto directo
+Con preposición: for me, for us, for both of us, to the teacher → Objeto Indirecto / Beneficiario
+CONDICIÓN: siempre introducidos por preposición (for / to), indican quién recibe el beneficio.
+
+════════════════════════════════
+DISTINCIÓN DE "TO"
+════════════════════════════════
+- Infinitivo complementario → I want to go
+- Infinitivo de propósito → to buy food
+- Dirección → to the store
+
+════════════════════════════════
+BLOQUES SINTÁCTICOS
+════════════════════════════════
+Un bloque = una función = un color. Siempre bloques completos.
+Los signos de puntuación (. , ? ! ; :) NO forman parte del análisis. PROHIBIDO asignarles color o función.
+
+════════════════════════════════
+UNIDAD VERBAL OBLIGATORIA
+════════════════════════════════
+Auxiliar + verbo = UNA SOLA UNIDAD con color verde #008000:
+- don't have, will go, is eating, are planning, have been working, want to go
+PROHIBIDO separar estructuras que funcionen como una sola unidad.
+REGLA DE CONSISTENCIA: si una estructura es unidad, TODAS las equivalentes también lo son.
+
+════════════════════════════════
+PRONUNCIACIÓN
+════════════════════════════════
+Estilo británico aproximado en letras españolas, natural.
+
+════════════════════════════════
+FIDELIDAD CROMÁTICA OBLIGATORIA
+════════════════════════════════
+Cada bloque en la explicación mantiene EXACTAMENTE el mismo color HEX que en la oración.
+PROHIBIDO usar texto sin color o cambiar colores.
+
+════════════════════════════════
+VERBO BASE
+════════════════════════════════
+Mostrar SOLO cuando el verbo está en otro tiempo verbal (no en infinitivo ni presente simple base).
+
+════════════════════════════════
+FORMATO DE RESPUESTA — JSON ESTRICTO
+════════════════════════════════
+Responde ÚNICAMENTE con JSON válido. Sin texto adicional. Sin markdown. Sin bloques de código.
+
+{
+  "sentence": "oración recibida",
+  "type": "tipo de estructura",
+  "diagnosis": "explicación breve 2-3 oraciones",
+  "colored_sentence": "<font color=\\"#HEX\\">bloque</font> <font color=\\"#HEX\\">bloque</font>",
+  "pronunciation": "/pronunciación/",
+  "blocks": [
+    {
+      "tag": "<font color=\\"#HEX\\">bloque</font>",
+      "emoji": "🟡",
+      "function": "Sujeto",
+      "meaning": "traducción",
+      "explanation": "explicación pedagógica clara"
+    }
+  ],
+  "order_colored": "<font color=\\"#HEX\\">bloque</font> + ...",
+  "order_labels": "SUJETO + VERBO + ...",
+  "meanings": [
+    { "tag": "<font color=\\"#HEX\\">bloque</font>", "translation": "traducción" }
+  ],
+  "full_meaning": "traducción completa natural",
+  "verb_base": "verbo base o vacío"
+}`;
+
+function showToast(msg, color) {
+  const t = document.getElementById('toast');
+  t.style.borderColor = color || 'var(--ok)';
+  t.style.color = color || 'var(--ok)';
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+function setExample(el) {
+  const inp = document.getElementById('sentence-input');
+  inp.value = el.textContent.trim();
+  inp.focus();
+}
+
+function resetAll() {
+  document.getElementById('result-area').classList.remove('visible');
+  document.getElementById('error-box').classList.remove('visible');
+  document.getElementById('sentence-input').value = '';
+  document.getElementById('sentence-input').focus();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildAnalysisHTML(data) {
+  let html = '';
+  html += `<div style="font-size:1.05rem;font-weight:700;font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem;line-height:1.8;">${data.colored_sentence}</div>`;
+  html += `<div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--muted);font-style:italic;margin-bottom:1.1rem;">${data.pronunciation}</div>`;
+  html += `<hr style="border:none;border-top:1px solid var(--border);margin:0.75rem 0 1rem;">`;
+
+  for (const b of data.blocks) {
+    html += `<div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:1.1rem;flex-wrap:wrap;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;font-weight:600;">${b.tag}</span>
+      <span style="color:var(--muted);">→</span>
+      <span style="font-family:'Syne',sans-serif;font-size:0.82rem;color:#c0c0d8;flex:1;line-height:1.6;min-width:200px;">
+        ${b.emoji} <strong>${b.function}</strong> / <em>${b.meaning}</em> — ${b.explanation}
+      </span>
+    </div>`;
+  }
+
+  html += `<div style="background:rgba(255,215,0,0.04);border:1px solid rgba(255,215,0,0.12);border-radius:4px;padding:0.75rem 1rem;margin-top:0.5rem;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:0.5rem;">🧠 Orden Sintáctico Funcional</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:2;">${data.order_colored}</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);margin-top:0.2rem;">${data.order_labels}</div>
+  </div>`;
+
+  html += `<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">📌 Significados</div>`;
+  for (const m of data.meanings) {
+    html += `<div style="display:flex;gap:0.5rem;align-items:baseline;margin-bottom:0.4rem;flex-wrap:wrap;">
+      <span style="color:var(--muted);font-size:0.72rem;">•</span>
+      <span style="font-family:'Syne',sans-serif;font-size:0.8rem;color:#c0c0d8;">${m.tag} → ${m.translation}</span>
+    </div>`;
+  }
+  html += `<div style="margin-top:0.75rem;font-family:'Syne',sans-serif;font-size:0.86rem;color:var(--text);padding:0.6rem 0.8rem;border-left:2px solid var(--accent);background:rgba(255,215,0,0.03);">
+    ✦ <strong>Significado completo:</strong> ${data.full_meaning}
+  </div>`;
+  if (data.verb_base && data.verb_base.trim() !== '') {
+    html += `<div style="margin-top:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);">
+      📌 Verbo base: <span style="color:var(--accent);">${data.verb_base}</span>
+    </div>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+function buildFontCode(data) {
+  let lines = [];
+  lines.push(data.colored_sentence);
+  lines.push('');
+  lines.push(data.pronunciation);
+  lines.push('');
+  for (const b of data.blocks) {
+    lines.push(`${b.tag} → ${b.emoji} ${b.function} / ${b.meaning} — ${b.explanation}`);
+    lines.push('');
+  }
+  lines.push('🧠 ORDEN SINTÁCTICO FUNCIONAL:');
+  lines.push(data.order_colored);
+  lines.push(data.order_labels);
+  lines.push('');
+  lines.push('📌 Significados:');
+  for (const m of data.meanings) {
+    lines.push(`• ${m.tag} → ${m.translation}`);
+  }
+  lines.push('');
+  lines.push(`✦ Significado completo: ${data.full_meaning}`);
+  if (data.verb_base && data.verb_base.trim() !== '') {
+    lines.push('');
+    lines.push(`Verbo base: ${data.verb_base}`);
+  }
+  return lines.join('\n');
+}
+
+async function analyze() {
+  const inp = document.getElementById('sentence-input');
+  const input = inp.value.trim();
+  if (!input) { showToast('⚠ Escribe una oración primero', '#f87171'); return; }
+
+  // Limpiar input inmediatamente
+  inp.value = '';
+
+  document.getElementById('loader').classList.add('visible');
+  document.getElementById('result-area').classList.remove('visible');
+  document.getElementById('error-box').classList.remove('visible');
+  document.getElementById('analyze-btn').disabled = true;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 2000,
+        system: SYSTEM_PROMPT,
+        messages: [{ role: 'user', content: input }]
+      })
+    });
+
+    if (!response.ok) throw new Error(`Error de red: ${response.status}. Verifica tu conexión.`);
+
+    const apiData = await response.json();
+    const rawText = apiData.content.filter(b => b.type === 'text').map(b => b.text).join('');
+    const cleaned = rawText.replace(/```json|```/gi, '').trim();
+
+    let data;
+    try { data = JSON.parse(cleaned); }
+    catch(e) { throw new Error('Respuesta no válida. Intenta de nuevo.'); }
+
+    document.getElementById('r-type').textContent = data.type || '';
+    document.getElementById('r-sentence').textContent = `"${data.sentence}"`;
+    document.getElementById('r-desc').textContent = data.diagnosis;
+    document.getElementById('analysis-body').innerHTML = buildAnalysisHTML(data);
+    document.getElementById('font-code').value = buildFontCode(data);
+
+    document.getElementById('loader').classList.remove('visible');
+    document.getElementById('result-area').classList.add('visible');
+
+    setTimeout(() => {
+      document.getElementById('result-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 120);
+
+  } catch(err) {
+    document.getElementById('loader').classList.remove('visible');
+    const eb = document.getElementById('error-box');
+    eb.textContent = `⚠ ${err.message}`;
+    eb.classList.add('visible');
+  } finally {
+    document.getElementById('analyze-btn').disabled = false;
+  }
+}
+
+function doCopy() {
+  const ta = document.getElementById('font-code');
+  ta.select();
+  ta.setSelectionRange(0, 99999);
+  const btn = document.getElementById('copy-btn');
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch(e) {}
+  if (!ok && navigator.clipboard) {
+    navigator.clipboard.writeText(ta.value)
+      .then(() => markCopyOk(btn))
+      .catch(() => showToast('⚠ Selecciona el texto y presiona Copiar', '#f87171'));
+    return;
+  }
+  if (ok) markCopyOk(btn);
+  else showToast('⚠ Presiona Ctrl+C para copiar', '#f87171');
+}
+
+function markCopyOk(btn) {
+  btn.classList.add('ok');
+  btn.textContent = '✓ Copiado';
+  showToast('✓ Código copiado — pégalo donde necesites');
+  setTimeout(() => { btn.classList.remove('ok'); btn.textContent = '📋 Copiar'; }, 3000);
+}
+
+document.getElementById('sentence-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); analyze(); }
+});
+</script>
+</body>
+
+<script>
+// ── Inline Service Worker ──
+if ('serviceWorker' in navigator) {
+  const swCode = `
+    const CACHE = 'grammar-v2';
+    self.addEventListener('install', e => {
+      self.skipWaiting();
+    });
+    self.addEventListener('activate', e => {
+      e.waitUntil(self.clients.claim());
+    });
+    self.addEventListener('fetch', e => {
+      if (e.request.url.includes('anthropic.com') || e.request.url.includes('fonts.google')) {
+        e.respondWith(fetch(e.request).catch(() => new Response('', {status: 503})));
+        return;
+      }
+      e.respondWith(
+        caches.match(e.request).then(r => r || fetch(e.request))
+      );
+    });
+  `;
+  const swBlob = new Blob([swCode], {type: 'application/javascript'});
+  const swURL = URL.createObjectURL(swBlob);
+  navigator.serviceWorker.register(swURL, {scope: './'}).catch(()=>{});
+}
+</script>
+</html>
